@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const generateBtn = document.getElementById('generateBtn');
   const editBtn = document.getElementById('editBtn');
   const downloadBtn = document.getElementById('downloadBtn');
+  const downloadImgBtn = document.getElementById('downloadImgBtn');
 
   generateBtn.addEventListener('click', () => {
     const courseCode = document.getElementById('courseCode').value.trim() || 'MAT 101';
@@ -61,8 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
       margin: 0,
       filename: 'DIU_Assignment_Cover_Page.pdf',
       image: { type: 'jpeg', quality: 1.0 },
-      html2canvas: { 
-        scale: 2, 
+      html2canvas: {
+        scale: 2,
         useCORS: true,
         scrollY: 0
       },
@@ -70,5 +71,29 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     html2pdf().set(options).from(element).save();
+  });
+
+  downloadImgBtn.addEventListener('click', () => {
+    const element = document.getElementById('coverPage');
+    const originalLabel = downloadImgBtn.innerHTML;
+    downloadImgBtn.innerHTML = 'Preparing…';
+    downloadImgBtn.disabled = true;
+
+    html2canvas(element, {
+      scale: 3,
+      useCORS: true,
+      scrollY: 0
+    }).then((canvas) => {
+      const link = document.createElement('a');
+      link.download = 'DIU_Assignment_Cover_Page.png';
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+      downloadImgBtn.innerHTML = originalLabel;
+      downloadImgBtn.disabled = false;
+    }).catch(() => {
+      downloadImgBtn.innerHTML = originalLabel;
+      downloadImgBtn.disabled = false;
+      alert('Could not generate the image. Please try again.');
+    });
   });
 });

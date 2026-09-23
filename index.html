@@ -3,22 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIU Assignment Cover Page Generator</title>
+  <title>DIU Assignment Cover Page Generator | Tools By JRN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
+  <header class="site-topbar">
+    <a href="https://toolsbyjrn.vercel.app" class="brand-badge">Tools By JRN</a>
+  </header>
+
   <div id="formScreen" class="screen-container">
     <div class="form-wrapper">
-      
+
       <div class="form-header">
         <h2>DIU Assignment Cover Page Generator</h2>
         <p class="subtitle">Fill in the assignment details below to quickly generate your formal cover page.</p>
       </div>
 
       <div class="form-sections">
-        
+
         <!-- SECTION 1: COURSE INFORMATION -->
         <div class="form-card-section">
           <div class="section-header">
@@ -129,11 +137,7 @@
         <img src="Center.svg" alt="DIU Watermark" class="watermark-bg">
 
         <div class="header-logo">
-          <img src="Center.svg" alt="DIU Crest" class="top-crest-img">
-          <div class="university-title">
-            <h2>Daffodil</h2>
-            <h3>International University</h3>
-          </div>
+          <img src="Top.svg" alt="Daffodil International University" class="top-logo-img">
         </div>
 
         <div class="assignment-header">ASSIGNMENT</div>
@@ -171,9 +175,9 @@
       </div>
     </div>
 
-    <!-- ACTION BUTTONS MOVED TO THE BOTTOM & ENLARGED -->
     <div class="action-bar bottom-action-bar">
       <button id="editBtn" class="secondary-btn action-btn-large">← Edit Details</button>
+      <button id="downloadImgBtn" class="secondary-btn action-btn-large">Download Image 🖼️</button>
       <button id="downloadBtn" class="primary-btn action-btn-large">Download PDF 📥</button>
     </div>
 
